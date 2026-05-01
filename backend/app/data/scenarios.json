@@ -1,0 +1,199 @@
+{
+  "competitive_activity": {
+    "default": {
+      "headline": "Competitive move ripples through {segment}; rivals re-price within 9 months",
+      "summary": "{actor}'s {move} forces a measurable share shift in {segment}, but the magnitude depends on incumbent depth and switching cost.",
+      "year_1": {
+        "title": "Y1 — Announcement shock & first orders",
+        "events": [
+          "{actor} announces {move}; trade press and analysts (Wohlers, SmarTech) publish takes within 30 days.",
+          "Top-3 incumbents in {segment} convene pricing reviews; 1 of 3 cuts list price within Q3.",
+          "Early-adopter customers (new-space, motorsport) place trial orders worth ~$8-15M cumulatively.",
+          "Materials suppliers wait — none reprice in Y1."
+        ],
+        "share_delta_pct": {"actor": 1.4, "incumbent_leader": -0.8, "incumbent_2": -0.4, "long_tail": -0.2}
+      },
+      "year_2": {
+        "title": "Y2 — Qualification cycle & defensive bundles",
+        "events": [
+          "Aerospace/medical qualification cycles complete for early movers; production POs land.",
+          "At least one incumbent launches a defensive bundle (printer + materials + service credit).",
+          "A second-tier OEM signals openness to acquisition; bankers circulate teasers.",
+          "{actor}'s share gains accelerate but plateau as cert backlog forms."
+        ],
+        "share_delta_pct": {"actor": 2.6, "incumbent_leader": -1.2, "incumbent_2": -0.7, "long_tail": -0.7}
+      },
+      "year_3": {
+        "title": "Y3 — Consolidation or stabilization",
+        "events": [
+          "Either a tier-2 OEM is acquired, or the industry settles into a new equilibrium with {actor} structurally larger.",
+          "Materials suppliers renegotiate volume tiers with the new leader.",
+          "End-customer base reports lower average price-per-part by 8-12% in {segment}."
+        ],
+        "share_delta_pct": {"actor": 3.4, "incumbent_leader": -1.8, "incumbent_2": -1.0, "long_tail": -0.6}
+      },
+      "agent_reactions": [
+        {"agent": "Stratasys", "stance": "Defensive — bundle pricing, hold list price"},
+        {"agent": "HP", "stance": "Counter-attack — emphasize throughput per dollar"},
+        {"agent": "EOS", "stance": "Hold — lean on aerospace cert moat"},
+        {"agent": "Aerospace primes", "stance": "Watch & wait until Y2 qualification data"},
+        {"agent": "Dental labs", "stance": "Fast-switch if cost-per-part drops >15%"},
+        {"agent": "BASF Forward AM", "stance": "Neutral — open to supply whoever wins"}
+      ],
+      "risks": [
+        "If {actor} posture is 'turnaround', credit risk may scare aerospace buyers away.",
+        "Tariff shock could blunt the price advantage in international segments.",
+        "Defensive M&A by an incumbent could lock up a key materials supplier."
+      ]
+    }
+  },
+  "value_proposition": {
+    "default": {
+      "headline": "Value prop tested against {n_verticals} verticals — {hot} bites first, {cold} resists",
+      "summary": "Simulated buyer agents score the value proposition. Verticals with throughput-per-dollar buy rules respond fastest; qualification-first verticals delay 12-18 months regardless of headline savings.",
+      "year_1": {
+        "title": "Y1 — Pilot & objection harvest",
+        "events": [
+          "Pilot conversations open with 4-6 named accounts across selected verticals.",
+          "Top objections surface: 'show us the qualified material allowables', 'cost-per-part audit', 'service uptime SLAs'.",
+          "Throughput-driven verticals (dental, motorsport, new-space) sign 1-2 LOIs.",
+          "Qualification-first verticals (aerospace primes, medical implants) request 18-month data package."
+        ],
+        "buyer_scores": [
+          {"vertical": "New-space launch & defense", "interest": 0.82, "buy_likelihood_y1": 0.45},
+          {"vertical": "Dental labs & DSOs", "interest": 0.74, "buy_likelihood_y1": 0.38},
+          {"vertical": "Aerospace primes", "interest": 0.61, "buy_likelihood_y1": 0.05}
+        ]
+      },
+      "year_2": {
+        "title": "Y2 — Reference customers & price discovery",
+        "events": [
+          "First 2 reference customers go public at industry shows (Formnext, RAPID).",
+          "Competitive responses: at least one incumbent re-prices to within 8% of your offer.",
+          "Materials suppliers start quoting volume discounts contingent on co-marketing.",
+          "If price premium > +20%, dental and motorsport renegotiate; aerospace is unmoved either way."
+        ]
+      },
+      "year_3": {
+        "title": "Y3 — Production scale or repositioning",
+        "events": [
+          "Throughput-driven verticals are at production scale, contributing 60-70% of bookings.",
+          "Aerospace primes complete first qualifications; revenue lags but margin is high.",
+          "Decision: double down on throughput verticals or invest 18-24 months building an aerospace specialist team."
+        ]
+      },
+      "agent_reactions": [
+        {"agent": "Aerospace primes", "stance": "Cautious — 'We need allowables and 24 months of process control data'"},
+        {"agent": "New-space launch & defense", "stance": "Bullish — 'If you can deliver in 8 weeks, we'll buy now'"},
+        {"agent": "Dental labs & DSOs", "stance": "Buy if cost-per-part beats current SLS workflow by >15%"},
+        {"agent": "Automotive OEMs", "stance": "Conditional — 'Show us cost parity with HPDC at 50k units/year'"},
+        {"agent": "Medical (orthopedic)", "stance": "Engage but lock in supplier diversity clause"}
+      ],
+      "risks": [
+        "Premium pricing erodes if a low-cost Chinese OEM matches the throughput claim.",
+        "Aerospace qualification slip pushes ROI past 36 months.",
+        "Materials volatility breaks the cost-per-part case."
+      ]
+    }
+  },
+  "industrial_market": {
+    "default": {
+      "headline": "Industrial AM grows to ~$32-38B by 2028 under '{capex_cycle}' capex; {tariff_regime} reshapes flows",
+      "summary": "Top-down view of metal, polymer, and service-bureau segments under selected macro conditions.",
+      "year_1": {
+        "title": "Y1 — Macro setup",
+        "events": [
+          "Capex regime '{capex_cycle}' sets baseline order book: industrial AM bookings move {capex_directional}.",
+          "Tariff regime '{tariff_regime}' shifts ~6-12% of metal-powder flows.",
+          "AI generative design at {ai_design_adoption}% adoption begins to expand the addressable parts catalog."
+        ],
+        "segments": {
+          "metal": {"revenue_b_usd": 7.2, "yoy_pct": 11.0},
+          "polymer": {"revenue_b_usd": 9.8, "yoy_pct": 9.0},
+          "service_bureaus": {"revenue_b_usd": 6.4, "yoy_pct": 14.0}
+        }
+      },
+      "year_2": {
+        "title": "Y2 — Mid-cycle inflection",
+        "events": [
+          "Multi-laser metal LPBF crosses cost-parity for selected aerospace brackets.",
+          "Service bureaus capture share from in-house print fleets; Xometry-style platforms grow ~22%.",
+          "M&A intensity at {consolidation}% drives at least 1 tier-2 OEM exit or merger."
+        ],
+        "segments": {
+          "metal": {"revenue_b_usd": 8.4, "yoy_pct": 16.7},
+          "polymer": {"revenue_b_usd": 10.9, "yoy_pct": 11.2},
+          "service_bureaus": {"revenue_b_usd": 7.6, "yoy_pct": 18.8}
+        }
+      },
+      "year_3": {
+        "title": "Y3 — New equilibrium",
+        "events": [
+          "Top-5 OEMs hold ~58% combined share (vs ~52% today) on consolidation.",
+          "Polymer commoditizes faster than metal; ASPs in polymer drop 9-14%.",
+          "Materials suppliers with vertically integrated certs (Sandvik, Carpenter) gain pricing power."
+        ],
+        "segments": {
+          "metal": {"revenue_b_usd": 10.1, "yoy_pct": 20.2},
+          "polymer": {"revenue_b_usd": 12.0, "yoy_pct": 10.1},
+          "service_bureaus": {"revenue_b_usd": 9.1, "yoy_pct": 19.7}
+        }
+      },
+      "agent_reactions": [
+        {"agent": "EOS", "stance": "Defends metal aero cert moat; cedes mid-tier polymer"},
+        {"agent": "HP", "stance": "Pushes polymer cost curve; experiments with Metal Jet at scale"},
+        {"agent": "Nikon SLM", "stance": "Aggressive throughput leader marketing"},
+        {"agent": "Aerospace primes", "stance": "Increase AM share of new-program parts to 12-18%"},
+        {"agent": "BASF Forward AM", "stance": "Commoditize polymer powders; protect engineered grades"},
+        {"agent": "Sandvik / Carpenter", "stance": "Hold pricing on Ni/Ti certs"}
+      ],
+      "risks": [
+        "Recession scenario inverts metal growth to flat by Y3.",
+        "Tariff escalation fragments the global powder market.",
+        "Generative AI overshoots — bottleneck moves from design to qualification."
+      ]
+    }
+  },
+  "demand_shift": {
+    "default": {
+      "headline": "{shock} hits {vertical} — magnitude {magnitude}/5, persistence {duration_quarters} quarters",
+      "summary": "End-customer agents in {vertical} reprice their AM spend; OEMs and materials suppliers respond with a lag.",
+      "year_1": {
+        "title": "Y1 — Initial reaction",
+        "events": [
+          "{vertical} reallocates ~{realloc_pct}% of category spend within 2 quarters.",
+          "OEMs serving the vertical see order-book volatility; the top 3 hold pricing, smaller OEMs cut.",
+          "Materials suppliers exposed to the shock signal hedging behavior in earnings calls."
+        ]
+      },
+      "year_2": {
+        "title": "Y2 — Structural rebalance",
+        "events": [
+          "If shock is 'reshoring mandate' or 'feedstock spike': domestic powder capacity adds gain pricing power.",
+          "If shock is 'regulatory acceleration' or 'AI-driven geometry': adoption rate steps up by 2-4 percentage points.",
+          "At least one mid-tier OEM repositions explicitly toward the affected vertical."
+        ]
+      },
+      "year_3": {
+        "title": "Y3 — New baseline",
+        "events": [
+          "Demand baseline in {vertical} settles at a level distinct from pre-shock — direction depends on shock type.",
+          "Cross-vertical spillover begins: adjacent verticals (e.g. defense → industrial machinery) inherit standards/tooling.",
+          "Reporting analysts revise 5-year industrial AM TAM by ±$2-4B."
+        ]
+      },
+      "agent_reactions": [
+        {"agent": "Vertical buyers", "stance": "Re-bid frame agreements within 2 quarters"},
+        {"agent": "Aerospace-tilted OEMs", "stance": "Hold price; lean on cert moat"},
+        {"agent": "Disruptor OEMs", "stance": "Aggressively undercut while incumbents are distracted"},
+        {"agent": "Sandvik / Carpenter", "stance": "Pricing power if shock = feedstock"},
+        {"agent": "Chinese powder consortium", "stance": "Opportunistic share gain if tariffs not blocking"}
+      ],
+      "risks": [
+        "If duration <4 quarters, market snaps back and committed capex strands.",
+        "If magnitude 5/5, secondary effects in adjacent verticals dominate primary scenario.",
+        "Geopolitical overlay can invert tariff assumptions mid-simulation."
+      ]
+    }
+  }
+}

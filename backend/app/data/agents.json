@@ -1,0 +1,255 @@
+{
+  "oems": [
+    {
+      "id": "stratasys",
+      "name": "Stratasys",
+      "segment": "polymer",
+      "tech": ["FDM", "PolyJet", "SAF"],
+      "strengths": ["Industrial polymer footprint", "Aerospace certs", "Color/multi-material"],
+      "weaknesses": ["Slow on production-scale polymer", "Material lock-in pricing"],
+      "share_2025_pct": 14.2,
+      "posture": "incumbent-defender"
+    },
+    {
+      "id": "3d_systems",
+      "name": "3D Systems",
+      "segment": "polymer+metal",
+      "tech": ["SLA", "SLS", "DMP"],
+      "strengths": ["Healthcare/dental verticals", "Software stack"],
+      "weaknesses": ["Fragmented portfolio", "Margin pressure"],
+      "share_2025_pct": 9.8,
+      "posture": "consolidator"
+    },
+    {
+      "id": "hp",
+      "name": "HP",
+      "segment": "polymer",
+      "tech": ["MJF", "Metal Jet"],
+      "strengths": ["Throughput", "Channel scale", "Cost/part at volume"],
+      "weaknesses": ["Limited material breadth vs SLS leaders", "Slow Metal Jet ramp"],
+      "share_2025_pct": 11.5,
+      "posture": "scale-attacker"
+    },
+    {
+      "id": "eos",
+      "name": "EOS",
+      "segment": "metal+polymer",
+      "tech": ["LPBF", "SLS"],
+      "strengths": ["Process maturity", "Aerospace + medical"],
+      "weaknesses": ["Capex price ceiling", "Throughput vs DMLS rivals"],
+      "share_2025_pct": 12.0,
+      "posture": "incumbent-defender"
+    },
+    {
+      "id": "desktop_metal",
+      "name": "Desktop Metal / Nano Dimension",
+      "segment": "metal",
+      "tech": ["Binder jetting", "Bound metal"],
+      "strengths": ["Production binder jet bet", "Broad portfolio post-merger"],
+      "weaknesses": ["Cash burn", "Customer trust after restructuring"],
+      "share_2025_pct": 4.1,
+      "posture": "turnaround"
+    },
+    {
+      "id": "velo3d",
+      "name": "Velo3D",
+      "segment": "metal",
+      "tech": ["Support-free LPBF"],
+      "strengths": ["Complex geometries", "Space/defense customers"],
+      "weaknesses": ["Single-vertical concentration", "Throughput economics"],
+      "share_2025_pct": 1.9,
+      "posture": "niche-specialist"
+    },
+    {
+      "id": "ge_additive",
+      "name": "GE Additive (Colibrium)",
+      "segment": "metal",
+      "tech": ["LPBF", "EBM"],
+      "strengths": ["Aero-engine parent demand", "EBM monopoly"],
+      "weaknesses": ["Captive sales focus", "Slow external growth"],
+      "share_2025_pct": 6.4,
+      "posture": "vertical-integrator"
+    },
+    {
+      "id": "slm_nikon",
+      "name": "Nikon SLM Solutions",
+      "segment": "metal",
+      "tech": ["Multi-laser LPBF"],
+      "strengths": ["Throughput leader (12-laser)", "Nikon capital backing"],
+      "weaknesses": ["Sales channel rebuild", "Service depth"],
+      "share_2025_pct": 5.2,
+      "posture": "scale-attacker"
+    },
+    {
+      "id": "carbon",
+      "name": "Carbon",
+      "segment": "polymer",
+      "tech": ["DLS"],
+      "strengths": ["Footwear, dental at scale", "Subscription model"],
+      "weaknesses": ["Subscription pushback", "Material breadth"],
+      "share_2025_pct": 3.6,
+      "posture": "platform-player"
+    },
+    {
+      "id": "formlabs",
+      "name": "Formlabs",
+      "segment": "polymer",
+      "tech": ["SLA", "SLS"],
+      "strengths": ["Dental dominance", "Best-in-class UX"],
+      "weaknesses": ["Sub-industrial throughput", "Material certs lag"],
+      "share_2025_pct": 4.7,
+      "posture": "category-leader-prosumer"
+    },
+    {
+      "id": "bambu_industrial",
+      "name": "Bambu Lab (industrial push)",
+      "segment": "polymer",
+      "tech": ["FDM"],
+      "strengths": ["Speed/cost ratio", "Supply chain efficiency"],
+      "weaknesses": ["Industrial cert gap", "Geopolitical exposure"],
+      "share_2025_pct": 1.2,
+      "posture": "disruptor-from-below"
+    }
+  ],
+  "end_customers": [
+    {
+      "id": "aerospace_primes",
+      "name": "Aerospace primes",
+      "examples": ["Boeing", "Airbus", "Lockheed", "RTX"],
+      "drivers": ["Weight reduction", "Lead-time compression", "Spare-part obsolescence"],
+      "barriers": ["AS9100/qualification cost", "Material allowables"],
+      "spend_3yr_growth_pct": 18.0,
+      "buy_rule": "qualification-first"
+    },
+    {
+      "id": "aerospace_newspace",
+      "name": "New-space launch & defense",
+      "examples": ["SpaceX", "Rocket Lab", "Anduril", "Northrop"],
+      "drivers": ["Iteration speed", "Engine geometry"],
+      "barriers": ["Throughput at scale-up"],
+      "spend_3yr_growth_pct": 28.0,
+      "buy_rule": "speed-first"
+    },
+    {
+      "id": "medical_orthopedic",
+      "name": "Orthopedic & spinal implants",
+      "examples": ["Stryker", "Zimmer", "J&J DePuy", "Smith+Nephew"],
+      "drivers": ["Patient-specific geometry", "Lattice osseointegration"],
+      "barriers": ["FDA 510(k) iteration cost"],
+      "spend_3yr_growth_pct": 14.0,
+      "buy_rule": "regulatory-throughput"
+    },
+    {
+      "id": "dental_labs",
+      "name": "Dental labs & DSOs",
+      "examples": ["Align", "Henry Schein networks", "Heartland"],
+      "drivers": ["Aligner throughput", "Crown/model workflows"],
+      "barriers": ["Resin cost per part"],
+      "spend_3yr_growth_pct": 11.0,
+      "buy_rule": "throughput-per-dollar"
+    },
+    {
+      "id": "automotive_oem",
+      "name": "Automotive OEMs",
+      "examples": ["BMW", "VW", "Ford", "GM", "Toyota"],
+      "drivers": ["Tooling lead time", "EV bracket consolidation"],
+      "barriers": ["Cost-per-part vs casting/forging"],
+      "spend_3yr_growth_pct": 7.0,
+      "buy_rule": "cost-parity-gate"
+    },
+    {
+      "id": "automotive_motorsport",
+      "name": "Motorsport / hypercar",
+      "examples": ["Formula 1 teams", "Bugatti", "Koenigsegg"],
+      "drivers": ["Performance over cost", "Cycle speed"],
+      "barriers": ["Volume too low for vendors"],
+      "spend_3yr_growth_pct": 9.0,
+      "buy_rule": "performance-first"
+    },
+    {
+      "id": "energy_oil_gas",
+      "name": "Energy / oil & gas",
+      "examples": ["Baker Hughes", "Siemens Energy", "GE Vernova"],
+      "drivers": ["Spare-part on demand", "Hot-section repair"],
+      "barriers": ["Cert in regulated environments"],
+      "spend_3yr_growth_pct": 12.0,
+      "buy_rule": "MRO-economics"
+    },
+    {
+      "id": "industrial_machinery",
+      "name": "Industrial machinery / tooling",
+      "examples": ["Caterpillar", "Deere", "ABB"],
+      "drivers": ["Conformal cooling tools", "Low-volume spares"],
+      "barriers": ["Engineer training"],
+      "spend_3yr_growth_pct": 8.0,
+      "buy_rule": "tco-roi"
+    },
+    {
+      "id": "consumer_brands",
+      "name": "Consumer goods (footwear, eyewear)",
+      "examples": ["Adidas", "New Balance", "Luxottica"],
+      "drivers": ["Mass customization", "On-shore production"],
+      "barriers": ["Cost-per-pair gap to injection mold"],
+      "spend_3yr_growth_pct": 6.0,
+      "buy_rule": "brand-margin"
+    }
+  ],
+  "materials_suppliers": [
+    {
+      "id": "basf",
+      "name": "BASF Forward AM",
+      "scope": "polymer powders, resins",
+      "leverage": "Petrochemical scale, formulation IP",
+      "risk": "Margin pressure as commoditization spreads"
+    },
+    {
+      "id": "covestro",
+      "name": "Covestro (Stratasys partner)",
+      "scope": "thermoplastics, resins",
+      "leverage": "Long-term OEM contracts",
+      "risk": "Feedstock volatility"
+    },
+    {
+      "id": "evonik",
+      "name": "Evonik",
+      "scope": "PA12, PEEK",
+      "leverage": "Medical-grade polymer dominance",
+      "risk": "PA12 oversupply"
+    },
+    {
+      "id": "hoganas",
+      "name": "Hoganas",
+      "scope": "metal powders (Fe, stainless, tool steel)",
+      "leverage": "Atomization scale",
+      "risk": "Energy cost in EU"
+    },
+    {
+      "id": "sandvik",
+      "name": "Sandvik Osprey",
+      "scope": "Ti, Ni-superalloys, tool steel",
+      "leverage": "Aerospace cert pedigree",
+      "risk": "Ti supply geopolitics"
+    },
+    {
+      "id": "carpenter",
+      "name": "Carpenter Additive",
+      "scope": "Ni alloys, Co-Cr",
+      "leverage": "Aero/medical certs",
+      "risk": "Capacity utilization"
+    },
+    {
+      "id": "ap_powder",
+      "name": "AP&C / GE Vernova",
+      "scope": "Ti plasma-atomized",
+      "leverage": "Captive demand + external sales",
+      "risk": "Plasma atomization capex"
+    },
+    {
+      "id": "ipd_china",
+      "name": "Chinese powder consortium",
+      "scope": "Stainless, Al, Ti at low cost",
+      "leverage": "Price disruptor",
+      "risk": "Tariffs, trust gap on certs"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "use_cases": [
+    {
+      "id": "competitive_activity",
+      "title": "Competitive Activity",
+      "subtitle": "Simulate how rivals respond to a market move",
+      "description": "Model how OEMs, materials suppliers, and end customers react to a competitor's launch, pricing change, or M&A in industrial AM.",
+      "icon": "swords",
+      "inputs": [
+        {"key": "actor", "label": "Acting competitor", "type": "select", "source": "oems", "required": true},
+        {"key": "move", "label": "Strategic move", "type": "select", "options": ["Major product launch", "Aggressive price cut (-20%)", "M&A acquisition", "Vertical integration into materials", "Service-bureau partnership"], "required": true},
+        {"key": "segment", "label": "Target segment", "type": "select", "options": ["Metal industrial", "Polymer industrial", "Service bureau / on-demand"], "required": true},
+        {"key": "intensity", "label": "Move intensity", "type": "slider", "min": 1, "max": 5, "default": 3}
+      ]
+    },
+    {
+      "id": "value_proposition",
+      "title": "Test a Value Proposition",
+      "subtitle": "Pressure-test a product positioning with simulated buyers",
+      "description": "Run a candidate value proposition past simulated end-customer agents (aerospace, medical, automotive...) and see which buy, which push back, and on what objections.",
+      "icon": "target",
+      "inputs": [
+        {"key": "value_prop", "label": "Value proposition statement", "type": "textarea", "placeholder": "e.g. 'Cut titanium aerospace bracket cost 35% by switching from 5-axis machining to multi-laser LPBF with in-process monitoring'", "required": true},
+        {"key": "tech", "label": "Underlying tech", "type": "select", "options": ["Metal LPBF", "Metal binder jetting", "Polymer SLS/MJF", "Polymer SLA/DLS", "Service-bureau network"], "required": true},
+        {"key": "target_verticals", "label": "Target verticals", "type": "multiselect", "source": "end_customers", "required": true},
+        {"key": "price_premium", "label": "Price vs. incumbent (%)", "type": "slider", "min": -50, "max": 100, "default": 0}
+      ]
+    },
+    {
+      "id": "industrial_market",
+      "title": "Industrial AM Market",
+      "subtitle": "Whole-market 3-year evolution",
+      "description": "Run a top-down simulation of the industrial AM market across metal, polymer, and service-bureau segments. Toggle macro variables (tariffs, capex cycle, AI design adoption) and watch share, revenue, and consolidation play out year by year.",
+      "icon": "globe",
+      "inputs": [
+        {"key": "tariff_regime", "label": "Tariff / trade regime", "type": "select", "options": ["Status quo", "US-China tariffs escalate", "EU CBAM expands", "Global de-escalation"], "required": true},
+        {"key": "capex_cycle", "label": "Industrial capex cycle", "type": "select", "options": ["Recession", "Flat", "Expansion (Recommended)", "Boom"], "required": true},
+        {"key": "ai_design_adoption", "label": "AI generative design adoption", "type": "slider", "min": 0, "max": 100, "default": 40},
+        {"key": "consolidation", "label": "M&A intensity", "type": "slider", "min": 0, "max": 100, "default": 50}
+      ]
+    },
+    {
+      "id": "demand_shift",
+      "title": "End-User Demand Shift",
+      "subtitle": "Simulate a buying-behavior shock in a vertical",
+      "description": "Pick a vertical (aerospace, medical, automotive...) and trigger a demand shift: regulatory change, supply-chain reshoring, raw-material spike. See how OEMs and materials suppliers reprice and reposition.",
+      "icon": "trending-up",
+      "inputs": [
+        {"key": "vertical", "label": "End-customer vertical", "type": "select", "source": "end_customers", "required": true},
+        {"key": "shock", "label": "Demand-shift trigger", "type": "select", "options": ["FAA/FDA accelerated approval pathway", "Reshoring mandate", "Ti or Ni feedstock spike (+40%)", "AI-driven design freeing geometry", "Major end-customer outsourcing wave"], "required": true},
+        {"key": "magnitude", "label": "Shock magnitude", "type": "slider", "min": 1, "max": 5, "default": 3},
+        {"key": "duration_quarters", "label": "Persistence (quarters)", "type": "slider", "min": 2, "max": 12, "default": 6}
+      ]
+    }
+  ]
+}
