@@ -1,76 +1,71 @@
 <template>
-  <section>
-    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom: 12px;">
-      <router-link to="/" class="btn secondary" style="text-decoration:none;">← Use cases</router-link>
+  <section class="console-view">
+    <div class="console-head">
+      <router-link to="/" class="btn secondary" style="text-decoration:none;">← New question</router-link>
       <span class="tag">project: {{ projectId }}</span>
-      <span v-if="useCase" class="tag">use case: {{ useCase.title }}</span>
+      <span class="tag">use case: {{ useCaseLabel }}</span>
     </div>
 
-    <div v-if="loading" class="empty"><span class="spinner"></span> Loading project…</div>
-    <div v-else-if="error" class="empty">{{ error }}</div>
-    <div v-else>
-      <h1>{{ useCase.title }}</h1>
-      <p class="lede">{{ useCase.description }}</p>
+    <p class="question-echo">"{{ question }}"</p>
 
-      <div class="panel">
-        <h2>Configure simulation</h2>
-        <UseCaseForm
-          :use-case="useCase"
-          :agents="agents"
-          :running="running"
-          @run="run"
+    <div class="split">
+      <div class="split-left">
+        <Graph
+          :nodes="subgraph.nodes"
+          :edges="subgraph.edges"
+          :entity-types="entityTypes"
+          :width="780"
+          :height="560"
         />
       </div>
+      <div class="split-right">
+        <BuildPipeline
+          :project-id="projectId"
+          :entity-types="entityTypes"
+          :relation-types="relationTypes"
+          :total-nodes="subgraph.nodes.length"
+          :total-edges="subgraph.edges.length"
+          :use-case-label="useCaseLabel"
+          @done="onBuildDone"
+        />
+      </div>
+    </div>
 
-      <div v-if="result">
-        <SimulationResult :result="result" />
-      </div>
-      <div v-else class="panel empty">
-        Configure inputs above and click "Run 3-year simulation" to see how OEMs, end-customer verticals,
-        and materials suppliers respond.
-      </div>
+    <div v-if="result">
+      <SimulationResult :result="result" />
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import UseCaseForm from '../components/UseCaseForm.vue'
+import Graph from '../components/Graph.vue'
+import BuildPipeline from '../components/BuildPipeline.vue'
 import SimulationResult from '../components/SimulationResult.vue'
-import { getUseCases, getAgents, simulate } from '../data/api.js'
+import { detectUseCase, defaultInputsFor, relevantSubgraph, fullGraph, useCases } from '../data/simulation.js'
+import { simulate } from '../data/api.js'
 
 const route = useRoute()
 const projectId = route.params.projectId
-const useCase = ref(null)
-const agents = ref({})
-const loading = ref(true)
-const running = ref(false)
-const error = ref(null)
-const result = ref(null)
+const meta = JSON.parse(sessionStorage.getItem(projectId) || '{}')
+const question = ref(meta.question || 'How is the industrial additive manufacturing market evolving?')
 
-onMounted(async () => {
-  try {
-    const meta = JSON.parse(sessionStorage.getItem(projectId) || '{}')
-    const [{ use_cases }, ag] = await Promise.all([getUseCases(), getAgents()])
-    agents.value = ag
-    useCase.value = use_cases.find(u => u.id === meta.use_case) || use_cases[0]
-  } catch (e) {
-    error.value = e.message
-  } finally {
-    loading.value = false
-  }
+const useCaseId = computed(() => detectUseCase(question.value))
+const useCaseLabel = computed(() => {
+  const uc = useCases().find(u => u.id === useCaseId.value)
+  return uc ? uc.title : useCaseId.value
 })
+const inputs = computed(() => defaultInputsFor(useCaseId.value, question.value))
 
-async function run(inputs) {
-  running.value = true
-  result.value = null
-  try {
-    result.value = await simulate(useCase.value.id, inputs)
-  } catch (e) {
-    error.value = e.message
-  } finally {
-    running.value = false
-  }
+const graph = fullGraph()
+const entityTypes = graph.entity_types
+const relationTypes = graph.relation_types
+
+const subgraph = computed(() => relevantSubgraph(useCaseId.value, inputs.value, question.value))
+
+const result = ref(null)
+async function onBuildDone() {
+  result.value = await simulate(useCaseId.value, inputs.value)
 }
 </script>

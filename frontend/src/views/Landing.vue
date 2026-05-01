@@ -1,50 +1,60 @@
 <template>
-  <section>
-    <h1>Industrial Additive Manufacturing — Multi-Agent Simulator</h1>
+  <section class="landing">
+    <h1>Ask anything about additive manufacturing</h1>
     <p class="lede">
-      Pick a use case. Configure the inputs. Run a 3-year strategic simulation across metal AM,
-      polymer AM, and service-bureau segments — with OEMs, end-customer verticals, and materials suppliers
-      reacting in turn.
+      Type a question or scenario. The simulator builds a knowledge graph of OEMs, end-customer
+      verticals, materials suppliers, and technologies — then runs a 3-year strategic simulation
+      across the relevant agents.
     </p>
 
-    <div v-if="loading" class="empty"><span class="spinner"></span> Loading use cases…</div>
-    <div v-else-if="error" class="empty">Couldn't load use cases: {{ error }}</div>
+    <div class="ask-card">
+      <textarea
+        v-model="question"
+        rows="3"
+        placeholder="e.g. What happens to Stratasys if HP cuts MJF prices 20% in dental?"
+        @keydown.ctrl.enter="submit"
+        @keydown.meta.enter="submit"
+      ></textarea>
+      <div class="ask-row">
+        <span class="hint">⌘/Ctrl + Enter to run</span>
+        <button class="btn" :disabled="!question.trim()" @click="submit">Generate analysis →</button>
+      </div>
+    </div>
 
-    <div v-else class="cards">
-      <div v-for="uc in useCases" :key="uc.id" class="card" @click="open(uc)">
-        <div class="icon">◆</div>
-        <h2>{{ uc.title }}</h2>
-        <div class="sub">{{ uc.subtitle }}</div>
-        <p style="margin-top:10px; font-size:13px; color: var(--text);">{{ uc.description }}</p>
+    <div class="examples">
+      <div class="examples-title">Example prompts</div>
+      <div class="example-grid">
+        <button v-for="ex in examples" :key="ex" class="example" @click="question = ex; submit()">
+          {{ ex }}
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getUseCases } from '../data/api.js'
 
 const router = useRouter()
-const useCases = ref([])
-const loading = ref(true)
-const error = ref(null)
+const question = ref('')
 
-onMounted(async () => {
-  try {
-    const data = await getUseCases()
-    useCases.value = data.use_cases
-  } catch (e) {
-    error.value = e.message
-  } finally {
-    loading.value = false
-  }
-})
+const examples = [
+  "What happens to Stratasys if HP cuts MJF prices 20% in dental?",
+  "Pressure-test a value prop: 35% cheaper Ti aerospace brackets via multi-laser LPBF",
+  "How does the industrial AM market evolve over 3 years if US-China tariffs escalate?",
+  "What if Ti feedstock spikes 40% — how do aerospace primes respond?",
+  "Simulate Desktop Metal acquiring a polymer OEM",
+  "FDA accelerated approval pathway for orthopedic implants — who wins?",
+  "Bambu Lab pushes into industrial polymer — credible threat to Stratasys?",
+  "Reshoring mandate hits automotive — does AM share grow or shrink?"
+]
 
-function open(uc) {
-  const id = `proj_${uc.id}_${Math.random().toString(36).slice(2, 10)}`
-  sessionStorage.setItem(id, JSON.stringify({ use_case: uc.id }))
+function submit() {
+  const q = question.value.trim()
+  if (!q) return
+  const id = `proj_${Math.random().toString(36).slice(2, 14)}`
+  sessionStorage.setItem(id, JSON.stringify({ question: q }))
   router.push(`/console/process/${id}`)
 }
 </script>
